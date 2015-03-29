@@ -17,7 +17,7 @@ USER ruby_dev
 
 #Set up vim
 COPY vimrc /home/ruby_dev/.vimrc
-RUN sudo chown ruby_dev:ruby_dev /home/ruby_dev/.vimrc
+RUN sudo chown ruby_dev:staff /home/ruby_dev/.vimrc
 RUN mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
 RUN curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 RUN git clone https://github.com/altercation/vim-colors-solarized.git $HOME/.vim/bundle/vim-colors-solarized/
@@ -28,13 +28,13 @@ RUN git clone https://github.com/scrooloose/nerdtree.git              $HOME/.vim
 #Set up zsh
 RUN sudo chsh -s $(which zsh)
 COPY zshenv /home/ruby_dev/.zshenv
-RUN sudo chown ruby_dev:ruby_dev /home/ruby_dev/.zshenv
+RUN sudo chown ruby_dev:staff /home/ruby_dev/.zshenv
 RUN sudo curl -sL -o /usr/local/bin/vcprompt https://github.com/djl/vcprompt/raw/master/bin/vcprompt
 RUN sudo chmod 755 /usr/local/bin/vcprompt
 
 #Set up tmux
 COPY tmux.conf /home/ruby_dev/.tmux.conf
-RUN sudo chown ruby_dev:ruby_dev /home/ruby_dev/.tmux.conf
+RUN sudo chown ruby_dev:staff /home/ruby_dev/.tmux.conf
 
 #Get RVM and some Rubies
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
