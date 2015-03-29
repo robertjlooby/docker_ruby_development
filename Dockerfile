@@ -11,7 +11,7 @@ RUN apt-get update && \
             vim \
             zsh
 
-RUN useradd -rm ruby_dev
+RUN useradd -rm ruby_dev -u 1000
 RUN echo "ruby_dev ALL=(ALL) NOPASSWD:ALL" | tee -a /etc/sudoers
 USER ruby_dev
 
